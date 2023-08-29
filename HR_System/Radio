@@ -1,0 +1,31 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def show_selection():
+    selection = var.get()
+    if selection == 1:
+        messagebox.showinfo("Result", "You selected: New Student")
+    elif selection == 2:
+        messagebox.showinfo("Result", "You selected: Returning Student")
+
+# Create the main window
+root = tk.Tk()
+root.title("Student Selection")
+
+# Create a variable to store the selected value
+var = tk.IntVar()
+
+# Create radio buttons
+new_student_radio = tk.Radiobutton(root, text="New Student", variable=var, value=1)
+returning_student_radio = tk.Radiobutton(root, text="Returning Student", variable=var, value=2)
+
+# Create a button to display the selection
+show_button = tk.Button(root, text="Show Selection", command=show_selection)
+
+# Organize widgets using grid layout
+new_student_radio.grid(row=0, column=0, padx=10, pady=5)
+returning_student_radio.grid(row=1, column=0, padx=10, pady=5)
+show_button.grid(row=2, column=0, padx=10, pady=10)
+
+# Start the GUI event loop
+root.mainloop()
